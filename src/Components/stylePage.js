@@ -8,11 +8,6 @@ export const GlobalStyle = createGlobalStyle `
     text-decorection:nome;
     list-style:nome;
 }
-
-img {
-    display:flex;
-    width: 20vw;
-    height: 50vh;
-}
+<Route path="/" element={<Movies/>} />
 
 `

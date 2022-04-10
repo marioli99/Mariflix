@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+// import TouchCarousel from 'react-touch-carousel'
 
 const apiFilmes = axios.create ({
         baseURL:'https://api.themoviedb.org/3/movie/popular?api_key=4305dab7131983fa38daf8a784e7ebd2&language=pt-br&page=1',
@@ -24,7 +25,7 @@ const apiFilmes = axios.create ({
                   poster_path: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
                 };
               });
-          
+          console.log(filmes)
               this.setState({
                 listFilmes: filmes,
                 resultfilms: filmes    
@@ -40,7 +41,7 @@ const apiFilmes = axios.create ({
                   return true
                 }
               })
-              //console.log(event.target.value)
+              // console.log(event.target.value)
           
               this.setState({
                 resultfilms: filmesFiltrados
@@ -56,11 +57,18 @@ const apiFilmes = axios.create ({
                   placeholder="Buscar filme..."
                   onChange={this.buscarFilmes}
                   />       
+
+                 
                   {this.state.resultfilms.map((item) => (
-                    <>
-                      <p>{item.title}</p>
-                      <img src={item.poster_path} alt="" />
-                    </>
+
+                    // <TouchCarousel>
+                    <ul>
+                      <li><img src={item.poster_path} alt="" /></li>
+                      </ul>
+                      
+                  //  </TouchCarousel>
+                  
+                    
                   ))}
                 </div>
               );
