@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import {Container} from './styledMovie'
 // import TouchCarousel from 'react-touch-carousel'
 
 const apiFilmes = axios.create ({
@@ -50,7 +51,7 @@ const apiFilmes = axios.create ({
           
             render() {
               return (
-                <div>
+                <Container>
                   <h1>Filmes</h1> 
                   <input 
                   type="text"
@@ -60,17 +61,16 @@ const apiFilmes = axios.create ({
 
                  
                   {this.state.resultfilms.map((item) => (
-
-                    // <TouchCarousel>
-                    <ul>
+                    <div>
+                      <ul>
                       <li><img src={item.poster_path} alt="" /></li>
                       </ul>
-                      
-                  //  </TouchCarousel>
+                    </div>
+                 
                   
                     
                   ))}
-                </div>
+                </Container>
               );
             }
           }

@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
-import Movies from './pages/Movies';
-import Series from './pages/Series';
-import Home from './pages/Home';
+import Movies from './pages/Movies/Movies';
+import Series from './pages/Series/Series';
+import Home from './pages/Home/Home';
 
 
 

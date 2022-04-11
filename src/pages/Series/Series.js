@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 const apiSeries = axios.create({
-    baseURL:'https://api.themoviedb.org/3/tv/popular?api_key=4305dab7131983fa38daf8a784e7ebd2',
+    baseURL:'https://api.themoviedb.org/3/tv/popular?api_key=4305dab7131983fa38daf8a784e7ebd2&language=pt-br&page=1',
 });
 
 export default class Series extends React.Component {
