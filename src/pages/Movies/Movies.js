@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import {Container} from './styledMovie'
-// import TouchCarousel from 'react-touch-carousel'
+import {Container, ContainerPoster, Pesquisa, Porters} from '../../Components/config/Styles/PageStyle'
+import GlobalStyle from "../../Components/config/Styles/GloblaStyle";
 
 const apiFilmes = axios.create ({
         baseURL:'https://api.themoviedb.org/3/movie/popular?api_key=4305dab7131983fa38daf8a784e7ebd2&language=pt-br&page=1',
@@ -52,24 +52,27 @@ const apiFilmes = axios.create ({
             render() {
               return (
                 <Container>
+                  <GlobalStyle/>
+                  <Pesquisa>
                   <h1>Filmes</h1> 
-                  <input 
-                  type="text"
-                  placeholder="Buscar filme..."
+                  <input type="text" placeholder="Buscar filme..." 
                   onChange={this.buscarFilmes}
-                  />       
+                  />  
+                  </Pesquisa>    
 
-                 
+                  <ContainerPoster>
                   {this.state.resultfilms.map((item) => (
-                    <div>
+                    <Porters>
                       <ul>
-                      <li><img src={item.poster_path} alt="" /></li>
+                      <li>
+                        <h5>{item.title}</h5>
+                        <img src={item.poster_path} alt="" />
+                        
+                      </li>
                       </ul>
-                    </div>
-                 
-                  
-                    
+                    </Porters>
                   ))}
+                  </ContainerPoster> 
                 </Container>
               );
             }

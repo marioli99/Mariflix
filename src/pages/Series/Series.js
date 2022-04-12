@@ -1,5 +1,8 @@
 import React from "react";
 import axios from "axios";
+import PageStyle, { Container, ContainerPoster, Pesquisa, Porters } from "../../Components/config/Styles/PageStyle"
+import GlobalStyle from "../../Components/config/Styles/GloblaStyle";
+
 
 
 const apiSeries = axios.create({
@@ -47,19 +50,23 @@ export default class Series extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container>
+        <GlobalStyle/>
+        <Pesquisa>
         <h1>Series</h1>
         <input onChange={this.buscarSeries}
         type="text"
         placeholder="Buscar serie..."
         />
+        </Pesquisa>
+        <ContainerPoster>
         {this.state.filtroBusca.map((item) => (
-          <div>
-            <p>{item.name}</p>
+          <Porters>
+            <h5>{item.name}</h5>
             <img src={item.poster_path} alt="" />
-          </div>
-        ))}
-      </div>
+          </Porters>
+        ))}</ContainerPoster>
+      </Container>
     );
   }
 }

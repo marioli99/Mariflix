@@ -3,10 +3,7 @@ import axios from "axios";
 import styled from "styled-components"
 import Carousel from "react-elastic-carousel";
 
-const H2 = styled.h2`
-font-size: medium;
 
-`;
 const apiFilmes =  axios.create({
     baseURL:'https://api.themoviedb.org/3/movie/popular?api_key=4305dab7131983fa38daf8a784e7ebd2&'
 });
@@ -43,7 +40,7 @@ getMovies = async () => {
 
     render(){
         return(
-           <CarouselMovies itemsToShow={5}>
+           <CarouselMovies enableAutoPlay autoPlaySpeed={3000} itemsToShow={5}>
                {this.state.movies.map((item) =>(
                    <img src={item.poster_path} alt={item.title}/>
                ))}
