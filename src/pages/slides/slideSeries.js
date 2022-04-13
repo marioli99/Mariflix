@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import styled from "styled-components"
-import Carousel from "react-elastic-carousel";
+import Carousel from "nuka-carousel";
 
 
 const apiSeries =  axios.create({
@@ -40,7 +40,19 @@ getMovies = async () => {
 
     render(){
         return(
-           <CarouselSeries enableAutoPlay autoPlaySpeed={3100} itemsToShow={5}>
+           <CarouselSeries 
+            autoplay = {true} 
+            speed={2000}
+            wrapAround={true}
+            slidesToShow={5}
+            defaultControlsConfig={{
+                nextButtonText: '>',
+                prevButtonText: '<',
+                pagingDotsStyle: {
+                  fill: 'none',
+                },
+              }}
+           >
                {this.state.series.map((item) =>(
                    <img src={item.poster_path} alt={item.title}/>
                ))}
